@@ -388,7 +388,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  },
 	
 	  isInputFocused: function isInputFocused() {
-	    var el = React.findDOMNode ? React.findDOMNode(this.refs.input) : this.refs.input;
+	    var el = this.refs.input;
 	    return el.ownerDocument && el === el.ownerDocument.activeElement;
 	  },
 	
