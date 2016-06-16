@@ -18,6 +18,7 @@ var Autocomplete = React.createClass({
     getItemValue: React.PropTypes.func.isRequired,
     renderItem: React.PropTypes.func.isRequired,
     renderMenu: React.PropTypes.func,
+    forceOpen: React.PropTypes.bool,
     menuStyle: React.PropTypes.object,
     inputProps: React.PropTypes.object,
     wrapperProps: React.PropTypes.object,
@@ -40,6 +41,7 @@ var Autocomplete = React.createClass({
       shouldItemRender: function shouldItemRender() {
         return true;
       },
+      forceOpen: false,
       menuStyle: {
         borderRadius: '3px',
         boxShadow: '0 2px 12px rgba(0, 0, 0, 0.1)',
@@ -355,7 +357,7 @@ var Autocomplete = React.createClass({
         onClick: this.handleInputClick,
         value: this.props.value
       })),
-      this.state.isOpen && this.renderMenu(),
+      (this.props.forceOpen || this.state.isOpen) && this.renderMenu(),
       this.props.debug && React.createElement(
         'pre',
         { style: { marginLeft: 300 } },

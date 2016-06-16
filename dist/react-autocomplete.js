@@ -90,6 +90,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    getItemValue: React.PropTypes.func.isRequired,
 	    renderItem: React.PropTypes.func.isRequired,
 	    renderMenu: React.PropTypes.func,
+	    forceOpen: React.PropTypes.bool,
 	    menuStyle: React.PropTypes.object,
 	    inputProps: React.PropTypes.object,
 	    wrapperProps: React.PropTypes.object,
@@ -112,6 +113,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      shouldItemRender: function shouldItemRender() {
 	        return true;
 	      },
+	      forceOpen: false,
 	      menuStyle: {
 	        borderRadius: '3px',
 	        boxShadow: '0 2px 12px rgba(0, 0, 0, 0.1)',
@@ -423,7 +425,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      },
 	      onClick: this.handleInputClick,
 	      value: this.props.value
-	    })), this.state.isOpen && this.renderMenu(), this.props.debug && React.createElement('pre', { style: { marginLeft: 300 } }, JSON.stringify(_debugStates.slice(_debugStates.length - 5, _debugStates.length), null, 2)));
+	    })), (this.props.forceOpen || this.state.isOpen) && this.renderMenu(), this.props.debug && React.createElement('pre', { style: { marginLeft: 300 } }, JSON.stringify(_debugStates.slice(_debugStates.length - 5, _debugStates.length), null, 2)));
 	  }
 	});
 	
